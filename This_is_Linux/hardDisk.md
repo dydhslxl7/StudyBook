@@ -15,7 +15,7 @@
 > 	Linear RAID, RAID 0, RAID 1, RAID 2, RAID 3, RAID 4, RAID 5  
 > 	Linear RAID, RAID 0, RAID 1, RAID 5, RAID 6, RAID 1+0  
 >   
-> 파티션 분할 명령어  
+> ##### 파티션 분할 명령어  
 > fdisk /dev/sdb   
 > Command : n  
 > Select : p  
@@ -27,7 +27,7 @@
 > Command : p  
 > Command : w  
 >   
-> RAID 구축  
+> ##### RAID 구축  
 > fdisk -l /dev/sdb; fdisk -l /dev/sdc  
 > mdadm --create /dev/md9 --level=linear --raid-devices=2 /dev/sdb1 /dev/sdc1  
 > mdadm --detail --scan  
@@ -36,3 +36,28 @@
 > mount /dev/md9 /raidLinear  
 > df  
 > vi /etc/fstab -> /dev/md9 /raidLinear ext4 defaults 1 2  
+> 
+> ##### Linear RAID, RAID 0, RAID 1, RAID 5에서 문제 발생과 조치 방법  
+> 기존의 하드디스크 중 몇개를 망가지면 장치가 없어지는 것이 아니라 하나씩 밀리게 된다.  
+> RAID 1, 5는 '결함 허용'기능이 있다. 즉, 하드디스크에 문제가 발생해도 저장된 데이터는 안전하다.  
+> RAID로 구성된 하드디스크가 고장 나면 일단 응급 모드로 접속된다.  
+> mdadm --run /dev/md9  
+> mdadm --stop /dev/md9  
+> 
+> 
+> 
+> 
+> 
+> 
+
+
+
+
+
+
+
+
+
+
+
+
