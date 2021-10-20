@@ -44,13 +44,83 @@
 > mdadm --run /dev/md9  
 > mdadm --stop /dev/md9  
 > 
+> ##### Linear RAID, RAID 0, RAID 1, RAID 5의 원상복구  
+> 하드디스크를 추가하면 차례대로 비어 있는 SCSI 장치에 장착된다.  
+> 기존에 [SCSI 0:6(/dev/sdg)]가 고장 났으므로, 반드시 [SCSI 0:6]에 새로운 하드디스크를 장착할 필요가 없다.  
+> raid0에 파일이 보여도 이 파일은 정상 파일이 아닌 50%만 정상인 파일이다.(파일 크기가 기존과 동일해도 실제 내용의 50%는 비었다고 보면 된다.) 그러므로 RAID0를 복구한 후에는 mkfs 명령으로 깨끗이 포맷하는 것이 좋다.  
+> mdadm --stop /dev/md9  
+> mdadm /dev/md1 --add /dev/sdg1  
 > 
-> 
-> 
-> 
-> 
+> ##### 고급 RAID 레벨  
+> RAID 6는 패리티를 2개 사용하므로 최소 4개의 하드디스크가 필요하다. 공간효율은 '하드디스크 개수 -2'다.  
 
-
+#### 3. LVM
+> Logical Volume Manager, 논리 하드디스크 관리자  
+> 물리 볼륨 : 파티션을 말한다.  
+> 볼륨 그룹 : 물리 볼룸을 합쳐서 1개의 물리 그룹으로 만든 것이다.  
+> 논리 볼륨 : 볼륨 그룹을 1개 이상으로 나눈 것으로 논리적 그룹이라고도 한다.  
+> 
+> ##### LVM의 구현  
+> fdisk /dev/sdb   
+> Command : n  
+> Select : p  
+> Partition number : 1  
+> First sector : enter  
+> Last sector : enter  
+> Command : t  
+> Hex Code : 8e  
+> Command : p  
+> Command : w  
+> 
+> pvcreate /dev/sdb1 /dev/sdc1 : 물리적인 볼륨 생성  
+> vgcreate myVG /dev/sdb1 /dev/sdc1 : 물리 볼륨을 하나로 묶는다.  
+> vgdisplay : 볼륨그룹 확인  
+> lvcreate : 볼륨 그룹의 파티션을 생성할 때 사용  
+> lvcreate --size 1G --name myLG1 myVG  
+> lvcreate --extents 100%FREE --name myLG3 myVG  
+> mkfs.ext4 /dev/myVG/myLG1  
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
 
 
 
