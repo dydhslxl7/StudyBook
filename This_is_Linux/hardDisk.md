@@ -80,7 +80,7 @@
 > lvcreate --extents 100%FREE --name myLG3 myVG  
 > mkfs.ext4 /dev/myVG/myLG1  
 > 
-> ##### 사용자별로 공간 할당하기
+> ##### * 사용자별로 공간 할당하기
 > 쿼터 : 파일 시스템마다 사용자나 그룹이 생성할 수 있는 파일의 용량과 개수를 제한하는 것
 > 
 > edquota -u john  
