@@ -80,14 +80,14 @@
 > lvcreate --extents 100%FREE --name myLG3 myVG  
 > mkfs.ext4 /dev/myVG/myLG1  
 > 
+> ##### 사용자별로 공간 할당하기
+> 쿼터 : 파일 시스템마다 사용자나 그룹이 생성할 수 있는 파일의 용량과 개수를 제한하는 것
 > 
-> 
-> 
-> 
-> 
-> 
-> 
-> 
+> edquota -u john  
+> [Filesystem]: 사용자별 쿼터를 할당하는 파일 시스템.  
+> [blocks],[soft],[hard]: 현재 사용자가 사용하는 블록(KB 단위)과 소프트 사용한도, 하드 사용 한도.  
+>                         [soft],[hard]의 0은 한도를 제한하지 않았다는 뜻.
+> [inodes],[soft],[hard]: inode의 개수(파일의 개수).
 > 
 > 
 > 
