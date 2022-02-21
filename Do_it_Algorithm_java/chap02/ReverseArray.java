@@ -34,5 +34,7 @@ public class ReverseArray {
         for (int i = 0; i < num; i++) {
             System.out.println("x[" + i + "] = " + x[i]);
         }
+
+        in.close();
     }
 }
