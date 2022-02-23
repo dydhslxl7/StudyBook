@@ -37,4 +37,13 @@ public class ReverseArray {
 
         in.close();
     }
+
+    static int sumOf(int[] a) {
+        int sum = 0;
+        for (int i : a) {
+            sum += i;
+        }
+
+        return sum;
+    }
 }
