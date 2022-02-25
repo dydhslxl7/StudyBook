@@ -41,6 +41,7 @@ public class SumFor {
     static int gauss(int n) {
         int sum = 0;
 
+        // 내꺼
         if(n % 2 == 0)
         {
             sum = (1 + n) * (n / 2);
@@ -49,6 +50,10 @@ public class SumFor {
         {
             sum = (1 + (n-1)) * ((n-1) / 2) + n;
         }
+
+        sum = 0;
+        // 해설 정답
+        sum = (n + 1) * (n / 2) + (n % 2 == 1 ? (n + 1) / 2 : 0);
 
         return sum;
     }
