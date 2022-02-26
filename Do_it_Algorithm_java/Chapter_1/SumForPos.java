@@ -49,7 +49,9 @@ public class SumForPos {
     static void q11() {
         Scanner in = new Scanner(System.in);
         int a = in.nextInt();
+        int b = a;
 
+        // 내꺼
         int t = 10;
         int count = 0;
         do {
@@ -57,6 +59,15 @@ public class SumForPos {
             t *= 10;
             count++;
         } while(a > 0);
+
+
+        // 해설 정답
+        int no = 0;
+        while(b > 0)
+        {
+            b /= 10;
+            no++;
+        }
 
         System.out.println("그 수는 "+count+"자리입니다.");
         in.close();
