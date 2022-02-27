@@ -70,6 +70,9 @@ public class SumForPos {
         }
 
         System.out.println("그 수는 "+count+"자리입니다.");
+
+        // 해설 정답
+        System.out.println("그 수는 "+no+"자리입니다.");
         in.close();
     }
 }
