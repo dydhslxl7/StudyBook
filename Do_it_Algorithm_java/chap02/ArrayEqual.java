@@ -2,6 +2,7 @@ package Do_it_Algorithm_java.chap02;
 
 import java.util.Scanner;
 // 두 배열이 같은가를 판단
+import java.util.function.IntPredicate;
 
 public class ArrayEqual {
     // 두 배열 a, b의 모든 요소가 같은가?
@@ -41,7 +42,25 @@ public class ArrayEqual {
 
         System.out.println("배열 a와 b는 "
                      + (equals(a, b) ? "같습니다." : "같지 않습니다."));
-                     
+
         in.close();
+    }
+
+    static void copy(int[] a, int[] b) {
+        if(a.length != b.length)
+            return;
+        
+        for (int i = 0; i < b.length; i++) {
+            a[i] = b[i];
+        }
+    }
+
+    static void rcopy(int[] a, int[] b) {
+        if(a.length != b.length)
+            return;
+
+        for (int i = 0; i < b.length; i++) {
+            a[(a.length-i)] = b[i];
+        }
     }
 }
