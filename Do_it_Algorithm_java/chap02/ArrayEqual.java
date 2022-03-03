@@ -2,7 +2,6 @@ package Do_it_Algorithm_java.chap02;
 
 import java.util.Scanner;
 // 두 배열이 같은가를 판단
-import java.util.function.IntPredicate;
 
 public class ArrayEqual {
     // 두 배열 a, b의 모든 요소가 같은가?
