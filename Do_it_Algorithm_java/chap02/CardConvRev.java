@@ -39,6 +39,7 @@ public class CardConvRev {
             } while( cd < 2 || cd > 36 );
 
             dno = cardConvR(no, cd, cno);
+            // dno = cardConvPrint(no, cd, cno);
 
             System.out.print(cd + "진수로는 ");
             for (int i = dno-1; i >= 0; i--) {
@@ -68,6 +69,29 @@ public class CardConvRev {
             d[i] = d[digits-i];
             d[digits-i] = temp;
         }
+
+        return digits;
+    }
+
+    static int cardConvPrint(int x, int r, char[] d) {
+        int digits = 0;
+        String dchar = "0123456789ABCDEFGHHIJKLMOPQRSTUVWXYZ";
+        
+        System.out.println(r + "|     " + x);
+
+        do {
+            d[digits++] = dchar.charAt(x % r);
+            x /= r;
+
+            System.out.println(" + -------");
+            if(x != 0)
+                System.out.print(r + "|     ");
+            else
+                System.out.print("       ");
+            
+            System.out.println(x + "  ∙∙∙ " + d[digits-1]);
+
+        } while (x != 0);
 
         return digits;
     }
