@@ -3,6 +3,10 @@ package Do_it_Algorithm_java.chap02;
 
 public class PrimeNumber3 {
     public static void main(String[] args) {
+        int counter = 0;
+        int ptr = 0;
+        int[] prime = new int[500];
+
         
     }    
 }
