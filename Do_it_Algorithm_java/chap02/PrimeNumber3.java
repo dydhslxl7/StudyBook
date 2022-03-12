@@ -7,6 +7,9 @@ public class PrimeNumber3 {
         int ptr = 0;
         int[] prime = new int[500];
 
+        prime[ptr++] = 2;
+        prime[ptr++] = 3;
+
         
     }    
 }
