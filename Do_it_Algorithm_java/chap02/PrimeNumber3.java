@@ -10,6 +10,18 @@ public class PrimeNumber3 {
         prime[ptr++] = 2;
         prime[ptr++] = 3;
 
-        
+        for (int n = 5; n <= 1000; n += 2) {
+            boolean flag = false;
+
+            for (int i = 1; prime[i] * prime[i] <= n; i++) {
+                counter += 2;
+
+                if(n % prime[i] == 0)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+        }
     }    
 }
