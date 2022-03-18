@@ -37,12 +37,22 @@ public class DayOfYear {
             System.out.print("월 : ");  int month = stdIn.nextInt(); // 월
             System.out.print("일 : ");  int day = stdIn.nextInt();   // 일
 
-            System.out.printf("그 해 %d일째입니다.\n", dayOfYear(year, month, day));
+            // System.out.printf("그 해 %d일째입니다.\n", dayOfYear(year, month, day));
+            System.out.printf("그 해 %d일째입니다.\n", q8(year, month, day));
 
             System.out.print("한 번 더 할까요? (1.예 / 0.아니오) : ");
             retry = stdIn.nextInt();
         } while(retry == 1);
 
         stdIn.close();
+    }
+
+    static int q8(int y, int m, int d) {
+
+        while(--m > 0) {
+            d += mdays[isLeap(y)][m];
+        }
+
+        return d;
     }
 }
