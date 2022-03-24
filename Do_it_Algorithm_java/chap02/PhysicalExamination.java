@@ -59,7 +59,8 @@ public class PhysicalExamination {
             new PhyscData("홍연의", 171, 1.5),
             new PhyscData("이수진", 168, 0.4),
             new PhyscData("김영준", 174, 1.2),
-            new PhyscData("박용규", 169, 0.8),
+            // new PhyscData("박용규", 169, 0.8),
+            new PhyscData("박용규", 169, 0.3),
         };
         
         int[] vdist = new int[VMAX];    // 시력분포
@@ -80,6 +81,13 @@ public class PhysicalExamination {
         for (int i = 0; i < VMAX; i++)
         {
             System.out.printf("%3.1f~:%2d명\n", i / 10.0, vdist[i]);
+
+            // q10
+            String star = "";
+            for (int j = 0; j < vdist[i]; j++) {
+                star += "*";
+            }
+            System.out.printf("%3.1f~: %s\n", i / 10.0, star);
         }
 
         stdIn.close();
