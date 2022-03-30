@@ -46,4 +46,16 @@ public class SeqSearchSen {
 
         stdIn.close();
     }
+
+    static int q1(int[] a, int n, int key) {
+
+        a[n] = key;                 // 보초를 추가
+
+        int i;
+        for(i = 0; i < n; i++) {
+            if(a[i] == key)         // 검색 성공!
+                break;
+        }
+        return i == n ? -1 : i;
+    }
 }
