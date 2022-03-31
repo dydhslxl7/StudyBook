@@ -1,5 +1,6 @@
 package Do_it_Algorithm_java.chap03;
 
+import java.util.Arrays;
 import java.util.Scanner;
 // 선형 검색 (보초법)
 
@@ -33,7 +34,8 @@ public class SeqSearchSen {
         System.out.print("검색할 값 : ");   // 키 값을 입력
         int ky = stdIn.nextInt();
 
-        int idx = seqSearchSen(x, num, ky); // 배열 x에서 값이 ky인 요소를 검색
+        // int idx = seqSearchSen(x, num, ky); // 배열 x에서 값이 ky인 요소를 검색
+        int idx = q2(x, num, ky); // 배열 x에서 값이 ky인 요소를 검색
 
         if(idx == -1)
         {
@@ -53,6 +55,40 @@ public class SeqSearchSen {
 
         int i;
         for(i = 0; i < n; i++) {
+            if(a[i] == key)         // 검색 성공!
+                break;
+        }
+        return i == n ? -1 : i;
+    }
+
+    static int q2(int[] a, int n, int key) {
+
+        // 기존 코드 유지하기 위해 낭비지만 추가
+        a = Arrays.copyOfRange(a, 0, n);
+
+        System.out.print("   |");
+        for (int i = 0; i < n; i++)
+        {
+            System.out.printf("%3d", i);
+        }
+
+        System.out.println("\n---+----------------------");
+
+        int i;
+        for(i = 0; i < n; i++) {
+            System.out.printf("   |");
+            for (int j = 0; j < i+1; j++) {
+                if(j != i)
+                    System.out.printf("   ");
+                else
+                    System.out.printf("%3s", "*");
+            }
+            System.out.println();
+            System.out.printf("%3d|", i);
+            for (int j : a) {
+                System.out.printf("%3d", j);
+            }
+            System.out.println();
             if(a[i] == key)         // 검색 성공!
                 break;
         }
