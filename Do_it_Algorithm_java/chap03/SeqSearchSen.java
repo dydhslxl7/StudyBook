@@ -84,6 +84,7 @@ public class SeqSearchSen {
                     System.out.printf("%3s", "*");
             }
             System.out.println();
+            
             System.out.printf("%3d|", i);
             for (int j : a) {
                 System.out.printf("%3d", j);
