@@ -105,4 +105,42 @@ public class SeqSearchSen {
         
         return idx.length;
     }
+
+    static int q4(int[] a, int n, int key) {
+
+        // 기존 코드 유지하기 위해 낭비지만 추가
+        a = Arrays.copyOfRange(a, 0, n);
+
+        System.out.print("   |");
+        for (int i = 0; i < n; i++)
+        {
+            System.out.printf("%3d", i);
+        }
+
+        System.out.println("\n---+----------------------");
+
+        int i;
+        for(i = 0; i < n; i++) {
+            System.out.printf("   |");
+            for (int j = 0; j < i+1; j++) {
+                if(j != i)
+                    System.out.printf("   ");
+                else if(j == 0)
+                    System.out.printf(" <-");
+                else if(j == (n-1))
+                    System.out.printf(" ->");
+                else
+                    System.out.printf("%3s", "*");
+            }
+            System.out.println();
+            System.out.printf("%3d|", i);
+            for (int j : a) {
+                System.out.printf("%3d", j);
+            }
+            System.out.println();
+            if(a[i] == key)         // 검색 성공!
+                break;
+        }
+        return i == n ? -1 : i;
+    }
 }
