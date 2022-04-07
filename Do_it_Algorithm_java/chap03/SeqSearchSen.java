@@ -96,4 +96,15 @@ public class SeqSearchSen {
         return i == n ? -1 : i;
     }
 
+    static int searchIdx(int[] a, int n, int key, int[] idx) {
+        
+        int j = 0;
+        for(int i = 0; i < n; i++) {
+            if(a[i] == key)         // 검색 성공!
+                idx[j++] = a[i];
+        }
+        
+        return idx.length;
+    }
+
 }
