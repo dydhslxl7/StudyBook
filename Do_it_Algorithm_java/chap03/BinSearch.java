@@ -64,17 +64,6 @@ public class BinSearch {
 
         stdIn.close();
     }
-
-    static int searchIdx(int[] a, int n, int key, int[] idx) {
-        
-        int j = 0;
-        for(int i = 0; i < n; i++) {
-            if(a[i] == key)         // 검색 성공!
-                idx[j++] = a[i];
-        }
-        
-        return idx.length;
-    }
     
     static int q4(int[] a, int n, int key) {
 
