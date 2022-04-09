@@ -41,7 +41,7 @@ public class BinSearch {
         System.out.print("x[0] : ");
         x[0] = stdIn.nextInt();
 
-        for (int i = 0; i < num; i++) {
+        for (int i = 1; i < num; i++) {
             do {
                 System.out.print("x[" + i + "] : ");
                 x[i] = stdIn.nextInt();
@@ -51,7 +51,8 @@ public class BinSearch {
         System.out.print("검색할 값 : ");
         int ky = stdIn.nextInt();
 
-        int idx = binSearch(x, num, ky);
+        // int idx = binSearch(x, num, ky);
+        int idx = q4(x, num, ky);
 
         if(idx == -1)
         {
@@ -66,7 +67,61 @@ public class BinSearch {
     }
     
     static int q4(int[] a, int n, int key) {
+        StringBuilder sb = new StringBuilder();
 
-        return n;
+        int pl = 0;                     // 검색 범위의 첫 인덱스
+        int pr = n - 1;                 // 검색 범위의 끝 인덱스
+
+        sb.append("   |");
+        for (int i : a) {
+            sb.append("  "+i);
+        }
+        sb.append("\n---+-----------------------\n");
+
+        do {
+            int pc = (pl + pr) / 2;     // 중앙 요소의 인덱스
+
+            sb.append("   |");
+            for (int i = 0; i <= pr; i++) {
+                if(i < pc)
+                {
+                    if ( i == pl || (pc == n && i == (pc-1) ) ) sb.append(" <-");
+                    else sb.append("   ");
+                }
+                else if(i == pc)
+                {
+                    sb.append("  + ");
+                }
+                else
+                {
+                    if (i == pr) sb.append(" ->"); 
+                    else sb.append("   ");
+                }
+            }
+            sb.append("\n  "+pc+"|");
+            for (int i : a) {
+                sb.append("  "+i);
+            }
+            sb.append("\n");
+
+
+            if(a[pc] == key)
+            {
+                System.out.println(new String(sb));
+                return pc;              // 검색 성공!
+            }
+            else if(a[pc] < key)
+            {
+                pl = pc + 1;            // 검색 범위를 뒤쪽 절반으로 좁힘
+            }
+            else
+            {
+                pr = pc -1;             // 검색 범위를 앞쪽 절반으로 좁힘
+            }
+
+        } while(pl <= pr);
+
+        System.out.println(new String(sb));
+        return -1;                      // 검색 실패!
     }
 }
