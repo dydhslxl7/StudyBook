@@ -52,7 +52,8 @@ public class BinSearch {
         int ky = stdIn.nextInt();
 
         // int idx = binSearch(x, num, ky);
-        int idx = q4(x, num, ky);
+        // int idx = q4(x, num, ky);
+        int idx = binSearchX(x, num, ky);
 
         if(idx == -1)
         {
@@ -123,5 +124,34 @@ public class BinSearch {
 
         System.out.println(new String(sb));
         return -1;                      // 검색 실패!
+    }
+
+    static int binSearchX(int[] a, int n, int key) {
+        int pl = 0;
+        int pr = n-1;
+        int idx = -1;
+
+        do {
+            int pc = (pl+pr) / 2;
+
+            if(a[pc] == key)
+            {
+                do {
+                    idx = pc;
+                    pc -= 1;
+                } while(a[pc] == key);
+            }
+            else if(a[pc] < key)
+            {
+                pl = pc + 1;
+            }
+            else
+            {
+                pr = pc - 1;
+            }
+
+        } while (idx == -1 && pl <= pr);
+
+        return idx;
     }
 }
