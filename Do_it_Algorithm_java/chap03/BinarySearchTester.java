@@ -31,6 +31,7 @@ public class BinarySearchTester {
 
         if (idx < 0)
             System.out.println("그 값의 요소가 없습니다.");
+            // System.out.println("삽입 포인트 : "+idx);
         else
             System.out.println(ky + "은(는) x[" + idx + "]에 있습니다.");
 
