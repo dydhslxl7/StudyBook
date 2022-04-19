@@ -58,6 +58,7 @@ class PhysExamSearch {
                 System.out.println("x[" + idx + "]에 있습니다.");
                 System.out.println("찾은 데이터 : " + x[idx]);
             }
+            stdIn.close();
         }
     }
 }
