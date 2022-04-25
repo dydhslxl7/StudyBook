@@ -40,4 +40,11 @@ public class IntStack {
             throw new EmptyIntStackException();
         return stk[--ptr];
     }
+
+    // 스택에서 데이터를 피크(정상에 있는 데이터를 들여다봄)
+    public int peek() throws EmptyIntStackException {
+        if(ptr <= 0)
+            throw new EmptyIntStackException();
+        return stk[ptr - 1];
+    }
 }
