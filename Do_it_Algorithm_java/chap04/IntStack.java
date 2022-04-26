@@ -47,4 +47,18 @@ public class IntStack {
             throw new EmptyIntStackException();
         return stk[ptr - 1];
     }
+
+    // 스택에서 x를 찾아 인덱스(없으면 -1)를 반환
+    public int indexOf(int x) {
+        for (int i = ptr-1; i >= 0; i--) {  // 정상 쪽에서 선형 검색
+            if(stk[i] == x)
+                return i;       // 검색 성공
+            return -1;          // 검색 실패
+        }
+    }
+
+    // 스택을 비움
+    public void clear() {
+        ptr = 0;
+    }
 }
