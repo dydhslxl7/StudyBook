@@ -50,6 +50,21 @@ class IntStackTester {
                 case 4:     // 덤프
                     s.dump();
                     break;
+
+                // Q1
+                case 5:     // 클리어
+                    s.clear();
+                    System.out.println("스택을 비웠습니다.");
+                    break;
+
+                case 6:     // 이즈풀
+                    if(s.isFull())
+                        System.out.println("가득 찼습니다.");
+                    else
+                        System.out.println("가득 차지 않았습니다.");
+                    break;
+
+                
             }
         }
 
