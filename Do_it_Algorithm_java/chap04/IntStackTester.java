@@ -64,7 +64,20 @@ class IntStackTester {
                         System.out.println("가득 차지 않았습니다.");
                     break;
 
-                
+                case 7:     // 이즈임프티
+                    if(s.isEmpty())
+                        System.out.println("비어있습니다.");
+                    else
+                        System.out.println("비어있지 않습니다.");
+                    break;
+
+                case 8:     // 인덱스오프
+                    int index = s.indexOf(stdIn.nextInt());
+                    if(index > -1)
+                        System.out.println("대상은 " + index + "에 있습니다.");
+                    else
+                        System.out.println("대상을 찾지 못했습니다.");
+                    break;
             }
         }
 
